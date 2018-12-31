@@ -1,0 +1,17 @@
+说明：
+连接数据库之前，先用pip install mysqlclient，安装MySQLdb模块
+如果安装失败，可以参考 https://blog.csdn.net/songlh1234/article/details/82664604 安装32位版
+
+import MySQLdb
+
+connection = MySQLdb.connect(host = '66.42.58.17',
+                             user = 'root',
+                             password = '123456Aa',
+                             db = 'plesson',
+                             charset = "utf8")
+
+c = connection.cursor()
+c.execute('select * from sq_course')
+numrows = c.rowcount
+print(c.fetchall())
+print(c.fetchmany(2))
